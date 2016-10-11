@@ -1,0 +1,41 @@
+#
+# Copy this file to pipeline-vars.yml, add appropriate values, and supply
+# to fly when creating or updating the concourse pipeline.
+#
+# For example:
+#
+#   fly -t TARGET set-pipeline \
+#     -p deploy-gemfire \
+#     -c ci/pivotal-gemfire-service-pipeline.yml \
+#     -l pipeline-vars.yml
+#
+# Note pipeline-vars.yml is in .gitignore to help avoid checking sensitive
+# material into github.
+#
+# Notes on BOSH basic auth vs. uaa auth
+#   bosh-pass below is only used for basic auth
+#   bosh-user is either the username (basic auth) or client_id (uaa auth)
+#
+bosh-cacert: |
+  -----BEGIN CERTIFICATE-----
+  ...
+  -----END CERTIFICATE-----
+bosh-pass: PASSWORD
+bosh-url: https://10.0.0.10
+bosh-user: admin
+concourse-url: http://10.0.0.31:8080
+concourse-user: USERNAME
+concourse-pass: PASSWORD
+deployment-name: staging
+pivotal-gemfire-service-version: 1.7.0
+stemcell-cpi-glob: '*vsphere*'
+stemcell-version: 3232.17
+product_plugin: p-gemfire-plugin-linux
+pivnet_api_token: API_TOKEN
+vault_addr: http://10.0.0.8:8200
+vault_hash_hostvars: secret/gemfire-nonprod-hostvars
+vault_hash_ip: secret/gemfire-nonprod-ip
+vault_hash_keycert: secret/gemfire-nonprod-keycert
+vault_hash_misc: secret/gemfire-staging-props
+vault_hash_password: secret/gemfire-nonprod-password
+vault_token: VAULT_TOKEN
