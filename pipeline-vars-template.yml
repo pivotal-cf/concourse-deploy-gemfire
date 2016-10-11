@@ -18,24 +18,32 @@
 #
 bosh-cacert: |
   -----BEGIN CERTIFICATE-----
-  ...
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxx
   -----END CERTIFICATE-----
-bosh-pass: PASSWORD
-bosh-url: https://10.0.0.10
+bosh-pass: xxxxxxxxxxxxxxxxxxxx
+bosh-url: https://xxxxxxxxxxxxx:25555
 bosh-user: admin
-concourse-url: http://10.0.0.31:8080
-concourse-user: USERNAME
-concourse-pass: PASSWORD
-deployment-name: staging
-pivotal-gemfire-service-version: 1.7.0
+concourse-url: https://xxxxxxxxxxxxx.io
+concourse-user: user 
+concourse-pass: xxxxxxxxxxxx 
+deployment-name: gemfire 
 stemcell-cpi-glob: '*vsphere*'
 stemcell-version: 3232.17
 product_plugin: p-gemfire-plugin-linux
-pivnet_api_token: API_TOKEN
-vault_addr: http://10.0.0.8:8200
-vault_hash_hostvars: secret/gemfire-nonprod-hostvars
-vault_hash_ip: secret/gemfire-nonprod-ip
-vault_hash_keycert: secret/gemfire-nonprod-keycert
-vault_hash_misc: secret/gemfire-staging-props
-vault_hash_password: secret/gemfire-nonprod-password
-vault_token: VAULT_TOKEN
+pivnet_api_token: xxxxxxxxxxxxxxxxxxxx
