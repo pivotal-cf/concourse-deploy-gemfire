@@ -15,7 +15,6 @@ omg-cli/omg-linux deploy-product \
   --ssl-ignore \
   $PRODUCT_PLUGIN \
   --deployment-name $DEPLOYMENT_NAME \
-  --server-instance-count 0 \
   --stemcell-ver $STEMCELL_VERSION > manifest/deployment.yml
 
 #eof

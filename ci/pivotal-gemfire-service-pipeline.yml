@@ -39,9 +39,11 @@ resources:
 - name: {{deployment-name}}
   type: bosh-deployment
   source:
-    ca_cert: {{bosh-cacert}}
+    #ca_cert: {{bosh-cacert}}
     deployment: {{deployment-name}}
     target: {{bosh-url}}
+    username: {{bosh-user}}
+    password: {{bosh-pass}}
 - name: stemcells
   type: pivnet
   source:
@@ -125,6 +127,11 @@ jobs:
       params:
         globs:
         - {{stemcell-cpi-glob}}
+    - get: p-gemfire-bosh-release
+      trigger: true
+      params:
+        globs:
+        - GemFire-v1.0.0-c0.tgz
     - task: generate-manifest
       config:
         platform: linux
@@ -145,7 +152,7 @@ jobs:
           STEMCELL_VERSION: {{stemcell-version}}
           OUTPUT_DIR: manifest
           OMG_AZ: {{az-list}}
-          OMG_NETWORK_NAME: {{network-list}}
+          OMG_NETWORK_NAME: {{network-name}}
           OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}
           OMG_SERVER_STATIC_IP: {{server-ip-list}}
           OMG_GEMFIRE_LOCATOR_VM_SIZE: {{locator-vm-size}}
@@ -164,4 +171,4 @@ jobs:
         stemcells:
         - stemcells/bosh-stemcell*.tgz
         releases:
-        - pivotal-gemfire-service-extracted/releases/*.tgz
+        - p-gemfire-bosh-release/*.tgz
