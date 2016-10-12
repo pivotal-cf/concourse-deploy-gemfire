@@ -137,6 +137,8 @@ jobs:
         params:
           BOSH_CLIENT: {{bosh-user}}
           BOSH_CLIENT_SECRET: {{bosh-pass}}
+          BOSH_URL: {{bosh-url}}
+          BOSH_PORT: {{bosh-port}}
           BOSH_CACERT: {{bosh-cacert}}
           DEPLOYMENT_NAME: {{deployment-name}}
           PRODUCT_PLUGIN: {{product_plugin}}
