@@ -88,24 +88,24 @@ jobs:
         outputs:
         - name: versions
           path: ""
-    - task: update-pipeline
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source:
-            repository: virtmerlin/deploy-worker
-        run:
-          path: concourse-deploy-gemfire/ci/tasks/update-pipeline.sh
-        params:
-          PIPELINE_NAME: deploy-gemfire
-          CONCOURSE_URL: {{concourse-url}}
-          CONCOURSE_USER: {{concourse-user}}
-          CONCOURSE_PASS: {{concourse-pass}}
-        inputs:
-        - name: concourse-deploy-gemfire
-        - name: versions
-        outputs:
+#    - task: update-pipeline
+#      config:
+#        platform: linux
+#        image_resource:
+#          type: docker-image
+#          source:
+#            repository: virtmerlin/deploy-worker
+#        run:
+#          path: concourse-deploy-gemfire/ci/tasks/update-pipeline.sh
+#        params:
+#          PIPELINE_NAME: deploy-gemfire
+#          CONCOURSE_URL: {{concourse-url}}
+#          CONCOURSE_USER: {{concourse-user}}
+#          CONCOURSE_PASS: {{concourse-pass}}
+#        inputs:
+#        - name: concourse-deploy-gemfire
+#        - name: versions
+#        outputs:
 - name: deploy
   plan:
     - get: concourse-deploy-gemfire
@@ -142,6 +142,13 @@ jobs:
           PRODUCT_PLUGIN: {{product_plugin}}
           STEMCELL_VERSION: {{stemcell-version}}
           OUTPUT_DIR: manifest
+          OMG_AZ: {{az-list}}
+          OMG_NETWORK_NAME: {{network-list}}
+          OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}
+          OMG_SERVER_STATIC_IP: {{server-ip-list}}
+          OMG_GEMFIRE_LOCATOR_VM_SIZE: {{locator-vm-size}}
+          OMG_GEMFIRE_SERVER_VM_SIZE: {{server-vm-size}}
+
         inputs:
         - name: concourse-deploy-gemfire
         - name: omg-cli
