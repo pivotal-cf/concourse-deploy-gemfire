@@ -23,6 +23,13 @@ resources:
   source:
     user: enaml-ops
     repository: omg-cli
+- name: p-gemfire-bosh-release 
+  type: github-release
+  check_every: 4h
+  source:
+    user: c0-ops
+    repository: cf-gemfire-release
+    access_token: {{github-token}}
 - name: omg-product-bundle
   type: github-release
   check_every: 4h
