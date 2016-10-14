@@ -13,29 +13,31 @@ groups:
 resources:
 - name: concourse-deploy-gemfire
   type: git
-  check_every: 4h
+  check_every: 1m
   source:
     uri: https://github.com/c0-ops/concourse-deploy-gemfire
     branch: master
 - name: omg-cli
   type: github-release
-  check_every: 4h
+  check_every: 1m
   source:
     user: enaml-ops
     repository: omg-cli
 - name: p-gemfire-bosh-release 
   type: github-release
-  check_every: 4h
+  check_every: 1m
   source:
     user: c0-ops
     repository: cf-gemfire-release
     access_token: {{github-token}}
 - name: omg-product-bundle
   type: github-release
-  check_every: 4h
+  check_every: 1m
   source:
+    drafts: {{check-drafts}}
     user: enaml-ops
     repository: omg-product-bundle
+    access_token: {{github-token}}
 - name: {{deployment-name}}
   type: bosh-deployment
   source:
