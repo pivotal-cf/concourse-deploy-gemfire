@@ -46,7 +46,6 @@ concourse-pass: xxxxxxxxxxxx
 deployment-name: gemfire 
 stemcell-cpi-glob: '*vsphere*'
 stemcell-version: 3232.17
-gfsh-version: 9.0.2
 product_plugin: p-gemfire-plugin-linux
 pivnet_api_token: xxxxxxxxxxxxxxxxxxxx
 github-token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
