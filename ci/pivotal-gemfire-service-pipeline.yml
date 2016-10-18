@@ -188,8 +188,8 @@ jobs:
         run:
           path: concourse-deploy-gemfire/ci/tasks/validate-multi-az-redundancy-map.sh
         params:
-          OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}
           PIVNET_TOKEN: {{pivnet_api_token}}
+          LOCATOR_CONNECTION: {{locator-connection-test}}
         inputs:
         - name: concourse-deploy-gemfire
           

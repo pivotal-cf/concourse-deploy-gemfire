@@ -51,6 +51,7 @@ pivnet_api_token: xxxxxxxxxxxxxxxxxxxx
 github-token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 az-list: az1,az2,az3
 network-list: subnet1
+locator-connection-test: '1.0.0.1[55221]'
 locator-ip-list: 1.0.0.1,1.0.0.2,1.0.0.3
 server-ip-list: 1.0.0.4,1.0.0.5,1.0.0.6,1.0.0.7,1.0.0.8,1.0.0.9
 locator-vm-size: small
