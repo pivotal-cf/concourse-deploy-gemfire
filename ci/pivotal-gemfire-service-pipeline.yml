@@ -3,12 +3,14 @@ groups:
   jobs:
   - get-product-version
   - deploy
+  - validation-test
 - name: deploy
   jobs:
   - get-product-version
   - deploy
-- name: errands
+- name: validation 
   jobs:
+  - validation-test
 
 resources:
 - name: concourse-deploy-gemfire
@@ -46,6 +48,12 @@ resources:
     target: {{bosh-url}}
     username: {{bosh-user}}
     password: {{bosh-pass}}
+- name: gfsh
+  type: pivnet
+  source:
+    api_token: {{pivnet_api_token}}
+    product_slug: pivotal-gemfire
+    product_version: {{gfsh-version}} 
 - name: stemcells
   type: pivnet
   source:
@@ -174,3 +182,22 @@ jobs:
         - stemcells/bosh-stemcell*.tgz
         releases:
         - p-gemfire-bosh-release/*.tgz
+- name: validation-test 
+  plan:
+    - get: gfsh 
+      trigger: true
+    - task: has-multi-az-redundancy-map
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: virtmerlin/deploy-worker
+        run:
+          path: concourse-deploy-gemfire/ci/tasks/validate-multi-az-redundancy-map.sh
+        params:
+          OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}
+        inputs:
+        - name: gfsh
+          
+
