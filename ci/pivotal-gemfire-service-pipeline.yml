@@ -47,12 +47,6 @@ resources:
     target: {{bosh-url}}
     username: {{bosh-user}}
     password: {{bosh-pass}}
-- name: gfsh
-  type: pivnet
-  source:
-    api_token: {{pivnet_api_token}}
-    product_slug: pivotal-gemfire
-    product_version: {{gfsh-version}} 
 - name: stemcells
   type: pivnet
   source:
@@ -184,8 +178,6 @@ jobs:
 - name: validation-test 
   plan:
     - get: concourse-deploy-gemfire
-    - get: gfsh 
-      trigger: true
     - task: has-multi-az-redundancy-map
       config:
         platform: linux
@@ -197,8 +189,8 @@ jobs:
           path: concourse-deploy-gemfire/ci/tasks/validate-multi-az-redundancy-map.sh
         params:
           OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}
+          PIVNET_TOKEN: {{pivnet_api_token}}
         inputs:
         - name: concourse-deploy-gemfire
-        - name: gfsh
           
 
