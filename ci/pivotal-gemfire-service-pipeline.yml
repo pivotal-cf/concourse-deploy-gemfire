@@ -36,7 +36,6 @@ resources:
   type: github-release
   check_every: 1m
   source:
-    drafts: {{check-drafts}}
     user: enaml-ops
     repository: omg-product-bundle
     access_token: {{github-token}}
@@ -184,6 +183,7 @@ jobs:
         - p-gemfire-bosh-release/*.tgz
 - name: validation-test 
   plan:
+    - get: concourse-deploy-gemfire
     - get: gfsh 
       trigger: true
     - task: has-multi-az-redundancy-map
