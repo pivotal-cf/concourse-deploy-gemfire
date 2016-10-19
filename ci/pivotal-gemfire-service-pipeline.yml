@@ -178,7 +178,6 @@ jobs:
 - name: validation-test 
   plan:
     - get: concourse-deploy-gemfire
-      passed: [deploy]
     - task: has-multi-az-redundancy-map
       config:
         platform: linux
