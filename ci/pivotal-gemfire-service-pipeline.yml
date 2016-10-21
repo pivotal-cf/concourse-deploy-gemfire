@@ -11,6 +11,7 @@ groups:
 - name: validation 
   jobs:
   - validation-test
+  - rest-api-test
 
 resources:
 - name: concourse-deploy-gemfire
@@ -192,5 +193,20 @@ jobs:
           LOCATOR_CONNECTION: {{locator-connection-test}}
         inputs:
         - name: concourse-deploy-gemfire
-          
+- name: rest-api-test 
+  plan:
+    - get: concourse-deploy-gemfire
+    - task: has-active-gemfire-rest-api 
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: virtmerlin/deploy-worker
+        run:
+          path: concourse-deploy-gemfire/ci/tasks/check-gemfire-rest-api.sh
+        params:
+          REST_API_ENDPOINT: {{rest-api-endpoint}}
+        inputs:
+        - name: concourse-deploy-gemfire
 
