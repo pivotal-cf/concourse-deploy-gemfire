@@ -4,6 +4,7 @@ groups:
   - get-product-version
   - deploy
   - validation-test
+  - rest-api-test
 - name: deploy
   jobs:
   - get-product-version
@@ -135,7 +136,7 @@ jobs:
       trigger: true
       params:
         globs:
-        - GemFire-v1.0.2.tgz
+        - GemFire-v1.0.3.tgz
     - task: generate-manifest
       config:
         platform: linux
@@ -155,6 +156,8 @@ jobs:
           PRODUCT_PLUGIN: {{product_plugin}}
           STEMCELL_VERSION: {{stemcell-version}}
           OUTPUT_DIR: manifest
+          OMG_GEMFIRE_DEV_REST_API_PORT: {{rest-api-port}}
+          OMG_GEMFIRE_DEV_REST_API_ACTIVE: {{rest-api-active}}
           OMG_AZ: {{az-list}}
           OMG_NETWORK_NAME: {{network-name}}
           OMG_LOCATOR_STATIC_IP: {{locator-ip-list}}

@@ -56,4 +56,6 @@ locator-ip-list: 1.0.0.1,1.0.0.2,1.0.0.3
 server-ip-list: 1.0.0.4,1.0.0.5,1.0.0.6,1.0.0.7,1.0.0.8,1.0.0.9
 locator-vm-size: small
 server-vm-size: small
-rest-api-endpoint: https://1.0.0.4:7070/gemfire-api/v1/ping
+rest-api-endpoint: http://1.0.0.4:7070/gemfire-api/v1/ping
+rest-api-active: true
+rest-api-port: 7070
