@@ -27,6 +27,7 @@ resources:
   source:
     user: enaml-ops
     repository: omg-cli
+    access_token: {{github-token}}
 - name: p-gemfire-bosh-release 
   type: github-release
   check_every: 4h
