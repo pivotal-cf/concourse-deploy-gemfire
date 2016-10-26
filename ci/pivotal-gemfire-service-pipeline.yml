@@ -52,7 +52,7 @@ resources:
 - name: stemcells
   type: pivnet
   source:
-    api_token: {{pivnet_api_token}}
+    api_token: {{pivnet-api-token}}
     product_slug: stemcells
     product_version: {{stemcell-version}}
 
@@ -192,7 +192,7 @@ jobs:
         run:
           path: concourse-deploy-gemfire/ci/tasks/validate-multi-az-redundancy-map.sh
         params:
-          PIVNET_TOKEN: {{pivnet_api_token}}
+          PIVNET_TOKEN: {{pivnet-api-token}}
           LOCATOR_CONNECTION: {{locator-connection-test}}
         inputs:
         - name: concourse-deploy-gemfire
